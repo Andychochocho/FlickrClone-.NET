@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<FlickrClone.Models.Image>
+@using System.Security.Claims
+
+
+<h4>Description</h4>
+@*@if (Model.Any())
+{
+
+    @foreach (var listImage in Model)
+    {
+        <p>@Html.DisplayFor(modelImage => listImage.Description)</p>
+        <hr />
+
+    }
+
+}
+else
+{
+    <p>No images have been added yet!</p>
+}*@

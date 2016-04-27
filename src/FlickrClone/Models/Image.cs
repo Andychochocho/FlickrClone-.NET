@@ -14,5 +14,6 @@ namespace FlickrClone.Models
         public int ImageId { get; set; }
         public string Description { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

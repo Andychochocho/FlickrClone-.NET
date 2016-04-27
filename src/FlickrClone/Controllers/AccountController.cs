@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Identity;
 using FlickrClone.Models;
 using FlickrClone.ViewModels;
+using System.Security.Claims;
 
 namespace FlickrClone.Controllers
 {
@@ -22,9 +23,10 @@ namespace FlickrClone.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-            public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+            return View(_db.Images.Where(x => x.User.Id == currentUser.Id));
         }
 
         public IActionResult Register()
@@ -73,5 +75,7 @@ namespace FlickrClone.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+
+        
     }
 }
