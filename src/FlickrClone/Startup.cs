@@ -45,6 +45,7 @@ namespace FlickrClone
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");    
             });
+            app.UseStaticFiles();
 
          app.Run(async(context) =>
             {

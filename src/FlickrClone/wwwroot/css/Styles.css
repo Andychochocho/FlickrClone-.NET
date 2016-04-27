@@ -3,6 +3,7 @@
     padding-top: 50px;
     padding-bottom: 70px;
     overflow-y: scroll;
+
 }
 
 h2, h4 {
@@ -58,4 +59,8 @@ div.text {
 #footer {
     padding-top: 12px;
     padding-left: 10px;
+}
+
+#header {
+    padding-right: 20px;
 }
