@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using FlickrClone.Models;
 using Xunit;
-using FlickrClone.Models;
 
 namespace FlickrClone.Tests
 {
@@ -14,6 +13,7 @@ namespace FlickrClone.Tests
         public void GetDescriptionTest()
         {
             var image = new Image();
+            image.Description = "Picture of anything";
             var result = image.Description;
             Assert.Equal("Picture of anything", result);
         }

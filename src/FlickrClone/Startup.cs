@@ -23,6 +23,8 @@ namespace FlickrClone
             Configuration = builder.Build();
         }
 
+        //Below is what we need to do when we get back the problem with 2 db contexts
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
