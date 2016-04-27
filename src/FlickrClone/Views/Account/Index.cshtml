@@ -1,3 +1,15 @@
 ﻿@{ 
     ViewData["Title"] = "Index";    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@using System.Security.Claims
+<h2>Authentication with Identity</h2>
+<hr />
+@if (User.IsSignedIn())
+{
+    <p>Hello @User.GetUserName()!</p>
+}
+else
+{
+    <p>Your account is not logged in. Please try again/Register with us.</p>
+}
