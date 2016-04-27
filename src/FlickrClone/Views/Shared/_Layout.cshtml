@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Account">FlickrClone</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li><a href="/Comments">Comments Area</a></li>*@
+                    @*<li><a href="/Home/About">About Us</a></li>*@
+                    @*<li><a href="/Home/Contact">Contact Us</a></li>*@
+                    @*<li><a href="/Vendors/Varea">Vendors Area</a></li>*@
+                    <li><a href="/Account">Home</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <p id="footer">&copy; @DateTime.Now.Year - FlickrClone. All Rights Reserved.</p>
+        </nav>
+    </div>
+</body>
+</html>
