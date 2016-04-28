@@ -16,7 +16,7 @@
 
         @foreach (var listImage in Model)
         {
-            <p>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", "Images", new { id = listImage.ImageId }) |</p>
+            <p>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", "Images", new { id = listImage.ImageId })</p>
             <hr />
         }
     }
