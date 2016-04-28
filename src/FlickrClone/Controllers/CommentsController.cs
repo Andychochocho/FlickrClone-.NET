@@ -45,7 +45,7 @@ namespace FlickrClone.Controllers
             comment.ImageId = id;
             _db.Comments.Add(comment);
             _db.SaveChanges();
-            return RedirectToAction("Details", "Images");
+            return RedirectToAction("Details", "Images", new { id = id });
         }
     }
     
