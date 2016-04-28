@@ -5,8 +5,17 @@
 
 @model FlickrClone.Models.Image
 
-<h3>Details</h3>
+<h2>Details</h2>
 <hr />
 Description: @Html.DisplayFor(model => model.Description)
+<br /><br /><hr />
+<h3>Comments: </h3>
+<br /><br />
+@foreach(var comment in Model.Comments)
+{
+    <p>Anonymous: @Html.DisplayFor(modelItem => comment.Description)</p>
+    <hr />
+}
 <br />
+<p>@Html.ActionLink("Add a comment", "Create", "Comments", new { id = Model.ImageId })</p>
 <p>@Html.ActionLink("Back to the list", "Index", "Account")</p>

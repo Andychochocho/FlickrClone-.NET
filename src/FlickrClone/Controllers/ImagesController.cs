@@ -30,8 +30,6 @@ namespace FlickrClone.Controllers
             _userManager = userManager;
             _db = db;
         }
-       
-
 
         public async Task<IActionResult> Index()
         {
@@ -43,6 +41,7 @@ namespace FlickrClone.Controllers
         public IActionResult Details(int id)
         {
             var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
+            thisImage.Comments = _db.Comments.Where(x => x.ImageId == id).ToList();
             return View(thisImage);
         }
 

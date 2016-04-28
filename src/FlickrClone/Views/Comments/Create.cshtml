@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FlickrClone.Models.Comment
+
+<h2>Add a new Comment!</h2>
+<hr />
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("@ViewBag.Pic")
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+    <input type="submit" value="Create" />
+}
+<br />
+@Html.ActionLink("Back to List", "Index", "Account")

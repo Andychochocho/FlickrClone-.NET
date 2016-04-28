@@ -1,7 +1,5 @@
 ﻿Tasks to Work On
 ______________________
-* As a user, I should be able to delete images allocated to the user once logged in.
-* As a user, I should be able to view comments allocated to the images once logged in.
 * As a user, I should be able to create comments allocated to the images once logged in.
 * As a user, I should be able to update comments allocated to the images once logged in.
 * As a user, I should be able to delete comments allocated to the images once logged in.
@@ -18,3 +16,5 @@ _______________________
 * As a user, I should be able to view images allocated to the user once logged in.
 * As a user, I should be able to create images allocated to the user once logged in.
 * As a user, I should be able to update images allocated to the user once logged in.
+* As a user, I should be able to delete images allocated to the user once logged in.
+* As a user, I should be able to view comments allocated to the images once logged in.
