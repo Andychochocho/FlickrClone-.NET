@@ -32,7 +32,7 @@ namespace FlickrClone.Controllers
         public async Task<IActionResult> Index()
         {
             var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
-            return View(_db.Images.Where(x => x.User.Id == currentUser.Id));
+            return View(_db.Images.Where(x => x.User.Id == currentUser.Id).ToList());
         }
 
 
