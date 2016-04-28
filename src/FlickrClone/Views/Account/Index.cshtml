@@ -3,13 +3,28 @@
 }
 
 
-
+@model IEnumerable<FlickrClone.Models.Image>
 @using System.Security.Claims
-<h2>Authentication with Identity</h2>
-<hr />
+
+
 @if (User.IsSignedIn())
 {
-    <p>Hello @User.GetUserName()!</p>
+    <h2>Images</h2>
+    <hr />
+    @if (Model.Any())
+    {
+
+        @foreach (var listImage in Model)
+        {
+            <p>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", "Images", new { id = listImage.ImageId }) |</p>
+            <hr />
+        }
+    }
+    else
+    {
+        <p>No images have been added yet!</p>
+        @Html.ActionLink("Create New Image", "Create")
+    }
 
 }
 else

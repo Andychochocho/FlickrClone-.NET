@@ -13,7 +13,7 @@
 
     @foreach (var listImage in Model)
     {
-        <p>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", new { id = listImage.ImageId}) | @Html.ActionLink("Edit", "Edit", new { id = listImage.ImageId})</p>
+        <p>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", new { id = listImage.ImageId}) | @Html.ActionLink("Edit", "Edit", new { id = listImage.ImageId})  | @Html.ActionLink("Delete", "Delete", new { id = listImage.ImageId }) |</p>
         <hr />
     }
     @Html.ActionLink("Create New Image", "Create")
@@ -21,4 +21,5 @@
 else
 {
     <p>No images have been added yet!</p>
+    @Html.ActionLink("Create New Image", "Create")
 }

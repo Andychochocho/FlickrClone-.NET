@@ -16,24 +16,27 @@ namespace FlickrClone.Controllers
     [Authorize]
     public class ImagesController : Controller
     {
-        
+
         //public class FlickrCloneController : Controller
         //{
-            private readonly ApplicationDbContext _db;
-            private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationDbContext _db;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-            public ImagesController(
-                UserManager<ApplicationUser> userManager,
-                ApplicationDbContext db
-            )
-            {
-                _userManager = userManager;
-                _db = db;
-            }
+        public ImagesController(
+            UserManager<ApplicationUser> userManager,
+            ApplicationDbContext db
+        )
+        {
+            _userManager = userManager;
+            _db = db;
+        }
+       
+
+
         public async Task<IActionResult> Index()
         {
             var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
-            return View(_db.Images.ToList());
+            return View(_db.Images.Where(x => x.User.Id == currentUser.Id));
         }
 
 
@@ -58,7 +61,6 @@ namespace FlickrClone.Controllers
             return RedirectToAction("Index");
         }
 
-        
         public IActionResult Edit(int id)
         {
             var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
@@ -66,12 +68,28 @@ namespace FlickrClone.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Image image)
+        public async Task<IActionResult> Edit(Image image)
         {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+            image.User = currentUser;
             _db.Entry(image).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-    }
 
+        public IActionResult Delete(int id)
+        {
+            var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
+            return View(thisImage);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
+            _db.Images.Remove(thisImage);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    }
 }
